@@ -1,5 +1,5 @@
+// https://www.codechef.com/MAY20B/problems/COVID19
 // Template begins
-#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
