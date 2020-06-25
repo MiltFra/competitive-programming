@@ -7,11 +7,11 @@
 #define i32_t int
 #define i64_t long int
 
-#define int i32_t
-#define uint u32_t
+#define int_t i32_t
+#define uint_t u32_t
 
-void next_signed(int *number) {
-  register int c;
+void next_signed(int_t *number) {
+  register int_t c;
   *number = 0;
   do {
     c = getchar();
@@ -26,8 +26,8 @@ void next_signed(int *number) {
   }
 }
 
-void next_unsigned(uint *number) {
-  register int c;
+void next_unsigned(uint_t *number) {
+  register int_t c;
   *number = 0;
   do {
     c = getchar();
@@ -49,7 +49,7 @@ void next_upper_letter(char *c) {
 }
 
 void skip_line() {
-  int c;
+  int_t c;
   do {
     c = getchar();
   } while (c != '\n' && c != EOF);
@@ -67,7 +67,7 @@ char is_indian() {
 #define BUG_FOUND 2
 #define CONTEST_HOSTED 3
 
-int parse_activity(char *str) {
+int_t parse_activity(char *str) {
   switch (str[0]) {
   case 'C':
     if (str[8] == 'W') {
@@ -84,7 +84,7 @@ int parse_activity(char *str) {
 }
 
 int main(void) {
-  uint T, A, X, L;
+  uint_t T, A, X, L;
   char O, str[1024];
   next_unsigned(&T);
   while (T--) {

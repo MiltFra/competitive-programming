@@ -7,11 +7,11 @@
 #define i32_t int
 #define i64_t long int
 
-#define int i32_t
-#define uint u32_t
+#define int_t i32_t
+#define uint_t u32_t
 
-void next_signed(int *number) {
-  register int c;
+void next_signed(int_t *number) {
+  register int_t c;
   *number = 0;
   do {
     c = getchar();
@@ -26,8 +26,8 @@ void next_signed(int *number) {
   }
 }
 
-void next_unsigned(uint *number) {
-  register int c;
+void next_unsigned(uint_t *number) {
+  register int_t c;
   *number = 0;
   do {
     c = getchar();
@@ -49,7 +49,7 @@ void next_upper_letter(char *c) {
 }
 
 int cmp(const void *a, const void *b) {
-  int cmp = (*(int *)a - *(int *)b);
+  int_t cmp = (*(int_t *)a - *(int_t *)b);
   if (cmp > 0) {
     return 1;
   } else if (cmp < 0) {
@@ -59,27 +59,27 @@ int cmp(const void *a, const void *b) {
   }
 }
 
-uint min(uint a, uint b) { return a < b ? a : b; }
+uint_t min(uint_t a, uint_t b) { return a < b ? a : b; }
 
 int main(void) {
-  uint T, *arr, *sorted_arr;
+  uint_t T, *arr, *sorted_arr;
   next_unsigned(&T);
-  arr = malloc(T * sizeof(uint));
-  for (uint i = 0; i < T; i++) {
+  arr = malloc(T * sizeof(uint_t));
+  for (uint_t i = 0; i < T; i++) {
     next_unsigned(arr + i);
   }
-  sorted_arr = malloc(T * sizeof(uint));
-  memcpy(sorted_arr, arr, T * sizeof(uint));
-  qsort(sorted_arr, T, sizeof(uint), &cmp);
-  uint twos, fives, tens;
+  sorted_arr = malloc(T * sizeof(uint_t));
+  memcpy(sorted_arr, arr, T * sizeof(uint_t));
+  qsort(sorted_arr, T, sizeof(uint_t), &cmp);
+  uint_t twos, fives, tens;
   twos = fives = tens = 0;
-  uint x = 1;
-  uint *p = sorted_arr;
-  uint *values = malloc(T * sizeof(uint));
-  for (uint i = 0; i < T; i++) {
-    uint target_factor = *(p++);
+  uint_t x = 1;
+  uint_t *p = sorted_arr;
+  uint_t *values = malloc(T * sizeof(uint_t));
+  for (uint_t i = 0; i < T; i++) {
+    uint_t target_factor = *(p++);
     for (; x <= target_factor; x++) {
-      uint factor = x;
+      uint_t factor = x;
       while (factor && (factor % 10 == 0)) {
         tens++;
         factor /= 10;
@@ -93,14 +93,14 @@ int main(void) {
         factor /= 2;
       }
     }
-    uint new_tens = min(fives, twos);
+    uint_t new_tens = min(fives, twos);
     tens += new_tens;
     fives -= new_tens;
     twos -= new_tens;
     values[i] = tens;
   }
-  for (uint i = 0; i < T; i++) {
-    for (uint j = 0; j < T; j++) {
+  for (uint_t i = 0; i < T; i++) {
+    for (uint_t j = 0; j < T; j++) {
       if (sorted_arr[j] == arr[i]) {
         printf("%u\n", values[j]);
         break;

@@ -2,16 +2,16 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define u32_t unsigned int
-#define u64_t unsigned long int
-#define i32_t int
-#define i64_t long int
+#define u32_t unsigned int_t
+#define u64_t unsigned long int_t
+#define i32_t int_t
+#define i64_t long int_t
 
-#define int i32_t
-#define uint u32_t
+#define int_t i32_t
+#define uint_t u32_t
 
-void next_signed(int *number) {
-  register int c;
+void next_signed(int_t *number) {
+  register int_t c;
   *number = 0;
   do {
     c = getchar();
@@ -26,8 +26,8 @@ void next_signed(int *number) {
   }
 }
 
-void next_unsigned(uint *number) {
-  register int c;
+void next_unsigned(uint_t *number) {
+  register int_t c;
   *number = 0;
   do {
     c = getchar();
@@ -48,8 +48,8 @@ void next_upper_letter(char *c) {
   } while (*c < 65 || *c > 90);
 }
 
-int main(void) {
-  uint T;
+int_t main(void) {
+  uint_t T;
   next_unsigned(&T);
   while (T--) {
   }

@@ -1,3 +1,5 @@
+// https://www.codechef.com/MAY20B/problems/CORUS
+// Template begins
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -13,7 +15,7 @@
 
 template <typename i>
 void next_signed(i &number) {
-  register int_t c;
+  register int c;
   number = 0;
   do {
     c = getchar();
@@ -30,7 +32,7 @@ void next_signed(i &number) {
 
 template <typename u>
 void next_unsigned(u &number) {
-  register int_t c;
+  register int c;
   number = 0;
   do {
     c = getchar();
@@ -44,16 +46,33 @@ void next_lower_letter(char &c) {
     c = getchar();
   } while (c < 97 || c > 122);
 }
-
-void next_upper_letter(char &c) {
-  do {
-    c = getchar();
-  } while (c < 65 || c > 90);
-}
+// Template ends
 
 int main(void) {
   u32 T;
   next_unsigned(T);
   while (T--) {
+    u32 counts[26];
+    for (u32 i = 0; i < 26; i++) {
+      counts[i] = 0;
+    }
+    u32 N, Q;
+    next_unsigned(N);
+    next_unsigned(Q);
+    char c;
+    while (N--) {
+      next_lower_letter(c);
+      counts[c - 97]++;
+    }
+    u32 C;
+    u32 sum;
+    while (Q--) {
+      next_unsigned(C);
+      sum = 0;
+      for (u32 i = 0; i < 26; i++) {
+        sum += std::max(0, (i32)(counts[i] - C));
+      }
+      printf("%u\n", sum);
+    }
   }
 }

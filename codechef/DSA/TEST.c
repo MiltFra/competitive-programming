@@ -7,11 +7,11 @@
 #define i32_t int
 #define i64_t long int
 
-#define int i32_t
-#define uint u32_t
+#define int_t i32_t
+#define uint_t u32_t
 
-void next_signed(int *number) {
-  register int c;
+void next_signed(int_t *number) {
+  register int_t c;
   *number = 0;
   do {
     c = getchar();
@@ -26,8 +26,8 @@ void next_signed(int *number) {
   }
 }
 
-void next_unsigned(uint *number) {
-  register int c;
+void next_unsigned(uint_t *number) {
+  register int_t c;
   *number = 0;
   do {
     c = getchar();
@@ -49,7 +49,7 @@ void next_upper_letter(char *c) {
 }
 
 int main(void) {
-  uint num;
+  uint_t num;
   next_unsigned(&num);
   while (num != 42) {
     printf("%u\n", num);

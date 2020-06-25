@@ -7,11 +7,11 @@
 #define i32_t int
 #define i64_t long int
 
-#define int i32_t
-#define uint u32_t
+#define int_t i32_t
+#define uint_t u32_t
 
-void next_signed(int *number) {
-  register int c;
+void next_signed(int_t *number) {
+  register int_t c;
   *number = 0;
   do {
     c = getchar();
@@ -26,8 +26,8 @@ void next_signed(int *number) {
   }
 }
 
-void next_unsigned(uint *number) {
-  register int c;
+void next_unsigned(uint_t *number) {
+  register int_t c;
   *number = 0;
   do {
     c = getchar();
@@ -51,21 +51,21 @@ void next_upper_letter(char *c) {
 #define OCCURRENCES_LEN 256
 
 void is_lapindrome(char *buffer) {
-  uint occurences_left[OCCURRENCES_LEN], occurences_right[OCCURRENCES_LEN];
+  uint_t occurences_left[OCCURRENCES_LEN], occurences_right[OCCURRENCES_LEN];
   char *left, *right;
-  uint len = strlen(buffer);
-  uint part_len = len / 2;
-  for (uint i = 0; i < OCCURRENCES_LEN; i++) {
+  uint_t len = strlen(buffer);
+  uint_t part_len = len / 2;
+  for (uint_t i = 0; i < OCCURRENCES_LEN; i++) {
     occurences_left[i] = 0;
     occurences_right[i] = 0;
   }
   left = buffer;
   right = left + (len + 1) / 2;
-  for (uint i = 0; i < part_len; i++) {
+  for (uint_t i = 0; i < part_len; i++) {
     occurences_left[*(left++)]++;
     occurences_right[*(right++)]++;
   }
-  for (uint i = 0; i < OCCURRENCES_LEN; i++) {
+  for (uint_t i = 0; i < OCCURRENCES_LEN; i++) {
     if (occurences_left[i] != occurences_right[i]) {
       printf("NO\n");
       return;
@@ -76,7 +76,7 @@ void is_lapindrome(char *buffer) {
 
 
 int main(void) {
-  uint T;
+  uint_t T;
   next_unsigned(&T);
   char buffer[1001];
   while (T--) {
