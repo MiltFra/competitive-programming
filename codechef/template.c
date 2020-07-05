@@ -2,10 +2,10 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define u32_t unsigned int_t
-#define u64_t unsigned long int_t
-#define i32_t int_t
-#define i64_t long int_t
+#define u32_t unsigned int
+#define u64_t unsigned long int
+#define i32_t int
+#define i64_t long int
 
 #define int_t i32_t
 #define uint_t u32_t
