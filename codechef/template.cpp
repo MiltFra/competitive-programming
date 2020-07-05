@@ -13,7 +13,7 @@
 
 template <typename i>
 void next_signed(i &number) {
-  register int c;
+  register int_t c;
   number = 0;
   do {
     c = getchar();
@@ -30,7 +30,7 @@ void next_signed(i &number) {
 
 template <typename u>
 void next_unsigned(u &number) {
-  register int c;
+  register int_t c;
   number = 0;
   do {
     c = getchar();

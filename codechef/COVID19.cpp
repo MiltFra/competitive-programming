@@ -64,6 +64,4 @@ void solve() {
   }
 }
 
-int main(void) {
-  solve();
-}
+int main(void) { solve(); }
