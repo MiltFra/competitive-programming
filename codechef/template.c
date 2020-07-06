@@ -7,8 +7,8 @@
 #define i32_t int
 #define i64_t long int
 
-#define int_t i32_t
-#define uint_t u32_t
+#define int_t i64_t
+#define uint_t u64_t
 
 void next_signed(int_t *number) {
   register int_t c;
@@ -48,7 +48,7 @@ void next_upper_letter(char *c) {
   } while (*c < 65 || *c > 90);
 }
 
-int_t main(void) {
+int main(void) {
   uint_t T;
   next_unsigned(&T);
   while (T--) {
